@@ -90,7 +90,7 @@ namespace T7
                 Console.WriteLine("2. Add New Employee");
                 Console.WriteLine("3. Update Employee");
                 Console.WriteLine("4. Delete Employee");
-                Console.WriteLine("5. Show all Employee");
+                Console.WriteLine("5. Show all Employee sorted");
                 Console.WriteLine("6. Import a list of Employee");
                 Console.WriteLine("7. Export a list of Employee");
                 Console.WriteLine("8. Logout");
@@ -118,7 +118,8 @@ namespace T7
                         break;
                     case 5:
                         Console.Clear();
-                        this.PrintList(employees);
+                        this.SortPrint();
+                        //this.PrintList(employees);
                         Console.ReadLine();
                         break;
                     case 6:

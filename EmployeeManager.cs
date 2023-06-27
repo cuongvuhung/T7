@@ -71,7 +71,7 @@ namespace T7
             // Check not duplicate Emp No
             if (!this.IsValid(empNo))
             {
-                Console.WriteLine("Add new Employee: {0},{1},{2},{3},{4}", empNo,empName,empEmail,empPassword,empIsManager);
+                Console.WriteLine("Add new Employee: {0},{1},{2},{3},{4}", empNo, empName, empEmail, empPassword, empIsManager);
                 Console.WriteLine("Are you sure?");
                 Console.Write("Yes(Y) or No(any other):");
                 if ((Console.ReadLine() + "").ToUpper() == "Y")
@@ -84,10 +84,10 @@ namespace T7
                 }
                 else
                 {
-                    Console.WriteLine("Nothing happen!");                    
+                    Console.WriteLine("Nothing happen!");
                     Console.ReadLine();
                     return (" add new " + empNo + "," + empName + "," + empEmail + ": Stop by user");
-                }                
+                }
             }
             else
             {
@@ -124,13 +124,13 @@ namespace T7
                         updateString += (" update " + searchKey + ":" + emp.GetNo() + "," + emp.GetName() + "," + emp.GetEmail() + "\n");
                     }
                 }
-            } else 
+            } else
             {
-                Console.WriteLine("Not found:{0}",searchKey);
+                Console.WriteLine("Not found:{0}", searchKey);
                 Console.ReadLine();
-                updateString = (" update " + searchKey + ": Invalid"); 
+                updateString = (" update " + searchKey + ": Invalid");
             }
-            PrintToFile(this.filePath);            
+            PrintToFile(this.filePath);
             return updateString;
         }
 
@@ -177,7 +177,7 @@ namespace T7
             string[] content;
             string msg;
             Console.Write("Enter file name: ");
-            filename = @"" + Console.ReadLine();
+            filename = @"" + Console.ReadLine() + ".csv";
             if (File.Exists(filename))
             {
                 content = File.ReadAllLines(filename);
@@ -201,14 +201,14 @@ namespace T7
                         return (" try import: " + filename + ": Bad File input");
                     }
                 }
-                Console.WriteLine("Find more {0} Employee in imported file", emp.Length-1);
+                Console.WriteLine("Find more {0} Employee in imported file", emp.Length - 1);
                 Console.ReadLine();
                 PrintList(emp);
                 if (emp.Length > 1)
                 {
-                    for (int i = 0; i < emp.Length-1; i++)
+                    for (int i = 0; i < emp.Length - 1; i++)
                     {
-                        emp[i] = emp[i+1];
+                        emp[i] = emp[i + 1];
                     }
                     Array.Resize(ref emp, emp.Length - 1);
                     Console.WriteLine("Ready for import");
@@ -235,19 +235,19 @@ namespace T7
                         return (" try import: " + filename + ": Stop by user");
                     }
                 }
-                else 
+                else
                 {
                     Console.WriteLine("Nothing to import!");
                     Console.ReadLine();
                     return (" try import: " + filename + ": Nothing to import");
                 };
-                } 
-                else 
-                { 
+            }
+            else
+            {
                 Console.WriteLine("Invalid file!");
-                return (" try import: " + filename + ": invalid filename");                    
-                }
-                
+                return (" try import: " + filename + ": invalid filename");
+            }
+
         }
         public override string Export()
         {
@@ -257,7 +257,7 @@ namespace T7
             while (filename == "")
             {
                 Console.Write("Enter file name: ");
-                filename = @"" + Console.ReadLine();
+                filename = @"" + Console.ReadLine() + ".csv";
             }
             for (int i = 0; i < this.GetDataLength(); i++)
             {
@@ -265,7 +265,7 @@ namespace T7
             }
             if (!File.Exists(filename))
             {
-                File.AppendAllLines(filename + ".csv", content);
+                File.AppendAllLines(filename, content);
                 Console.WriteLine("Export successful!");
                 Console.ReadLine();
                 return (" export data to: " + filename + ":Successful");
@@ -304,6 +304,17 @@ namespace T7
                 Console.WriteLine("Not Found!");
                 Console.ReadLine();
             }
+        }
+
+        // Module Sort List of employee
+        public void SortPrint()
+        {
+            for (int i = 0; i < this.employees.Length-1; i++)
+                for (int j = i+1; j < this.employees.Length; j++)
+                    if (this.employees[i].GetName().CompareTo(this.employees[j].GetName()) > 0) 
+                        (this.employees[j], this.employees[i]) = (this.employees[i], this.employees[j]);
+            Console.Clear();
+            PrintList(this.employees);
         }
 
         // Module Show List of employee
