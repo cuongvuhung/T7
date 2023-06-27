@@ -1,0 +1,16 @@
+EmpNo,EmpName,EmpEmail,True,EmpPassword,False
+admin,admin,admin,False,admin,True
+a,a,admin,False,admin,False
+b,c,admin,False,admin,False
+c,b,admin,False,admin,False
+d,e,admin,False,admin,False
+e,d,admin,False,admin,False
+f,f,admin,False,admin,False
+f,j,admin,False,admin,False
+f,f3k,admin,False,admin,False
+f,q52,admin,False,admin,False
+f,e3,admin,False,admin,False
+f,r2one,admin,False,admin,False
+f,t23two,admin,False,admin,False
+f,y62two,admin,False,admin,False
+f,u12one,admin,False,admin,False

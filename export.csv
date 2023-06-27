@@ -1,0 +1,7 @@
+EmpNo,EmpName,EmpEmail,TRUE,EmpPassword,FALSE
+a,a,admin,FALSE,admin,TRUE
+b,b,admin,FALSE,admin,TRUE
+e,e,admin,FALSE,admin,TRUE
+f,f,admin,FALSE,admin,TRUE
+c,c,admin,FALSE,admin,TRUE
+d,d,admin,FALSE,admin,TRUE
